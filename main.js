@@ -2,6 +2,7 @@ const formData = [];
 
 function check() {
     var name = document.getElementById('name').value;
+    var namel = document.getElementById('namel').value;
     var email = document.getElementById('email').value;
     var age = document.getElementById('phone').value;
     var phone = document.getElementById('phone').value;
@@ -31,21 +32,30 @@ function check() {
     const nameLength = name.length;
     const emailLowerCase = email.toLowerCase();
     const phoneSubstring = phone.substring(0, 10);
-    const passwordUpperCase = password.toUpperCase();
+    // const passwordUpperCase = password.toUpperCase();
     const namelowercase = name.toLowerCase();
+    const fullname = name+ " "+namel;
 
+    console.log("Full Name :", fullname);
     console.log("Name Length:", nameLength);
     console.log("Email in Lower Case:", emailLowerCase);
     console.log("Phone Substring:", phoneSubstring);
-    console.log("Password in Upper Case:", passwordUpperCase);
+    // console.log("Password in Upper Case:", passwordUpperCase);
     console.log("Name Lowerer Case:", namelowercase);
   }
 
     if (name === "") {
-        document.getElementById('namerrr').innerHTML = "Name is required";
+        document.getElementById('namerrr').innerHTML = " FirstName is required";
         isValid = false;
     } else if (!nameRegex.test(name)) {
         document.getElementById('namerrr').innerHTML = "Enter a valid Name";
+        isValid = false;
+    }
+    if (namel === "") {
+        document.getElementById('namerrrl').innerHTML = "Last Name is required";
+        isValid = false;
+    } else if (!nameRegex.test(namel)) {
+        document.getElementById('namerrrl').innerHTML = "Enter a valid Name";
         isValid = false;
     }
 
@@ -104,17 +114,23 @@ function check() {
 
         gcheck(); 
       } catch (error) {
-        document.getElementById('gerr').innerHTML = "An error occurred";
+        console.log("An error occurred");
+        // document.getElementById('gerr').innerHTML = "An error occurred";
       }
       
 
     return isValid;
+
+    // alert("All data has been successfully added!");
 
     
 }
 
 const rework = () => {
     document.getElementById('namerrr').innerHTML = "";
+  };
+const reworks = () => {
+    document.getElementById('namerrrl').innerHTML = "";
   };
   
   const emailinput = () => {
@@ -136,25 +152,4 @@ const rework = () => {
   const ginput = () => {
     document.getElementById('gerr').innerHTML = "";
   };
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-    
-    
-    
-    
-
-
 
